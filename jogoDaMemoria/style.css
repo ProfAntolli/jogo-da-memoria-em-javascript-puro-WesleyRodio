@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --cinza-claro: #eeeeee;
+  --cinza-azulado1: #222831;
+  --cinza-azulado2: #31363f;
+  --verde-azulado: #76abae;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  outline: 0;
+  transition: .218s
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cinza-azulado1);
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.restart {
+  opacity: 0;
+  padding: 10px 25px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: var(--cinza-azulado2);
+  color: var(--cinza-claro);
+
+  &:hover {
+    background-color: var(--cinza-claro);
+    color: var(--cinza-azulado2);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.table {
+  width: 552px;
+  height: 552px;
+  background-color: var(--cinza-azulado2);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+  .table {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.table .line {
+  display: flex;
+  flex-direction: row;
+}
+
+.table .line .card {
+  border: none;
+  width: 8rem;
+  height: 8rem;
+  background-color: var(--cinza-claro);
+  margin: 5px;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: 0.218s;
+  transform-style: preserve-3d;
+}
+
+@media (max-width: 552px) {
+  .table .line .card {
+    width: 22vw;
+    height: 13vh;
+  }
+}
+
+.table .line .cardHover {
+  border-radius: 0.5rem;
+  transition: 0.218s;
+  background-color: transparent;
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  opacity: 0.5;
+}
+
+.table .line .card .cardImage {
+  background-size: auto;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-radius: 0.5rem;
+}
+
+.table .line .card .cardImage.show {
+  background-image: url(./src/fontFace.png);
+  background-position: center;
+  background-size: 15rem;
+}
+
+.table .line .card .cardImage.hidden {
+  transform: rotate3d(0, 1, 0, 180deg);
+  backface-visibility: hidden;
+}
+
+.table .line .card .cardImage.az {
+  background-image: url(./src/cards.jpg);
+  background-position: center;
+  background-position-x: 12%;
+  background-position-y: 18.5%;
+  background-size: 50rem;
+}
+
+.table .line .card .cardImage.bz {
+  background-image: url(./src/cards.jpg);
+  background-position: center;
+  background-position-x: 12%;
+  background-position-y: 43%;
+  background-size: 50rem;
+}
+
+.table .line .card .cardImage.cz {
+  background-image: url(./src/cards.jpg);
+  background-position: center;
+  background-position-x: 12.5%;
+  background-position-y: 68%;
+  background-size: 46rem;
+}
+
+.table .line .card .cardImage.dz {
+  background-image: url(./src/cards.jpg);
+  background-position: center;
+  background-position-x: 12.5%;
+  background-position-y: 92.5%;
+  background-size: 46rem;
+}
+
+.table .line .card .cardImage.ez {
+  background-image: url(./src/cards.jpg);
+  background-position: center;
+  background-position-x: 36.5%;
+  background-position-y: 43%;
+  background-size: 46rem;
+}
+
+.table .line .card .cardImage.fz {
+  background-image: url(./src/cards.jpg);
+  background-position: center;
+  background-position-x: 37.5%;
+  background-position-y: 68%;
+  background-size: 46rem;
+}
+
+.table .line .card .cardImage.gz {
+  background-image: url(./src/cards.jpg);
+  background-position: center;
+  background-position-x: 37.5%;
+  background-position-y: 92.5%;
+  background-size: 46rem;
+}
+
+.table .line .card .cardImage.hz {
+  background-image: url(./src/cards.jpg);
+  background-position: center;
+  background-position-x: 61.5%;
+  background-position-y: 92.5%;
+  background-size: 46rem;
+}
+
+.table .line .card.active {
+  transform: rotate3d(0, 1, 0, 180deg);
+}
+
+.table .line .card.equals {
+  transform: rotate3d(0, 1, 0, 180deg) scale(0.8);
+}
+
+.table .line .card.active .cardImage {
+  opacity: 1;
+}
+
+.table .line .card:hover .cardHover {
+  background-color: var(--verde-azulado);
+}
